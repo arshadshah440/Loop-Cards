@@ -1,4 +1,6 @@
 <?php
+// if file is being called directly or not in the wordpress
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 /*
  * Package: Loop Cards
@@ -6,8 +8,8 @@
  * @since 1.0.0
  * @author Arshad Shah
  */
-require_once LOOPCARD_PLUGIN_PATH . 'includes/admin/class-lpcd-admin-menu.php';
-require_once LOOPCARD_PLUGIN_PATH . 'includes/shortcodes/class-lpcd-cpt-shortcodes.php';
+require_once LOOPCARD_PLUGIN_PATH . 'includes/admin/lpcd-class-admin-menu.php';
+require_once LOOPCARD_PLUGIN_PATH . 'includes/shortcodes/lpcd-class-cpt-shortcodes.php';
 
 if (!class_exists('lpcd_plugin')) {
 
@@ -24,9 +26,8 @@ if (!class_exists('lpcd_plugin')) {
             if (!defined('LPCD_PLUGIN_NAME')) {
                 define('LPCD_PLUGIN_NAME', 'Loop Cards');
             }
-
-            lpcd_admin_menu::lpcd_admin_init();
             lpcd_cpt_shortcodes::init_shortcodes();
+            lpcd_admin_menu::lpcd_admin_init();
         }
 
         public static function lpcd_activate()
@@ -43,7 +44,6 @@ if (!class_exists('lpcd_plugin')) {
         }
         public function lpcd_load_scripts()
         {
-            wp_enqueue_script('lpcdmainjs', LOOPCARD_PLUGIN_URL . '/includes/public/js/main.js', array('jquery'), '1.0.0', true);
             wp_enqueue_style('basicLoopCards', LOOPCARD_PLUGIN_URL . '/includes/public/css/basicloopcards.css', array(), filemtime(LOOPCARD_PLUGIN_PATH . '/includes/public/css/basicloopcards.css'), 'all');
         }
     }

@@ -9,7 +9,7 @@
  * Author URI:        https://arshadwpdev.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       Loop Cards
+ * Text Domain:       loop-cards
  */
 
 
@@ -34,7 +34,7 @@ if (!class_exists('lpcd_main')) {
     }
     public function include_files()
     {
-      require_once plugin_dir_path(__FILE__) . 'includes/class-lpcd-plugin.php';
+      require_once plugin_dir_path(__FILE__) . 'includes/lpcd-class-plugin.php';
     }
     public function define_constants()
     {

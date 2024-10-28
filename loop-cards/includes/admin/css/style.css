@@ -61,6 +61,7 @@
 .lpcd_cards_wrappers {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 25px;
 }
 .lpcd_each_cards {

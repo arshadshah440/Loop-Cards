@@ -34,6 +34,12 @@ Display your posts in style with customizable post cards using our shortcode plu
 
 Yes you can override the cards designs by writing you own css.
 
+== Frequently Asked Questions ==
+
+= Is there any google font is being used? =
+
+Yes plugin is using the outfit google font using the cdn.
+
 == Screenshots ==
 
 1. screenshot-1.png

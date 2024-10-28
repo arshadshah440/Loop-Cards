@@ -1,4 +1,7 @@
 <?php
+// if file is being called directly or not in the wordpress
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /* 
  * Secondary Loop Cards
  * @subpackage Loop Cards/templates/Loop Cards
@@ -11,6 +14,8 @@
 // title of post
 $title = get_the_title();
 $excerpt = get_the_excerpt();
+$excerpt = wp_trim_words($excerpt, 10);
+
 $post_url = get_the_permalink();
 $last_updated = get_the_date();
 $post_categories = get_the_category();
@@ -31,14 +36,14 @@ if (!empty($post_categories)) {
 <div class="lpcd-row lpcd-justify-content-center lpcd-p-lg-5 lpcd-p-2">
     <div class="lpcd-blog-post lpcd-col-10 lpcd-col-sm-12 lpcd-p-3 lpcd-bg-light lpcd-shadow lpcd-d-flex lpcd-align-items-center lpcd-rounded-3">
         <div class="lpcd-blog-post-img">
-            <img src="<?php echo esc_url(!empty($featuredimage_url) ? $featuredimage_url : $backupimgurl); ?>" alt="<?php echo esc_attr__('Featured Image', 'Loop Cards'); ?>" class="lpcd-img-fluid lpcd-rounded-3">
+            <img src="<?php echo esc_url(!empty($featuredimage_url) ? $featuredimage_url : $backupimgurl); ?>" alt="<?php echo esc_attr__('Featured Image', 'loop-cards'); ?>" class="lpcd-img-fluid lpcd-rounded-3">
         </div>
         <div class="lpcd-blog-post-info">
             <h3 class="lpcd-blog-post-title"><?php echo esc_html($title); ?></h3>
             <p class="lpcd-blog-post-text lpcd-my-3">
                 <?php echo esc_html($excerpt); ?>
             </p>
-            <a href="<?php echo esc_url($post_url); ?>" class="lpcd-btn lpcd-btn-warning"><?php echo esc_html__('Read More', 'Loop Cards'); ?></a>
+            <a href="<?php echo esc_url($post_url); ?>" class="lpcd-btn lpcd-btn-warning"><?php echo esc_html__('Read More', 'loop-cards'); ?></a>
         </div>
     </div>
 </div>
