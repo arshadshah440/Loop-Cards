@@ -43,6 +43,10 @@
   height: 15px;
   cursor: pointer;
 }
+.lpcd_copy_code_wrapper .lpcd_shortcode{
+  max-width: 90%;
+  overflow: hidden;
+}
 .lpcd_copy_code_wrapper .lpcd_shortcode h6 {
   margin: 0px;
   font-size: 16px;
@@ -62,7 +66,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 20px;
 }
 .lpcd_each_cards {
   width: 300px;

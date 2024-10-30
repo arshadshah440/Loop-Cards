@@ -26,8 +26,8 @@ if (!class_exists('lpcd_plugin')) {
             if (!defined('LPCD_PLUGIN_NAME')) {
                 define('LPCD_PLUGIN_NAME', 'Loop Cards');
             }
-            lpcd_cpt_shortcodes::init_shortcodes();
             lpcd_admin_menu::lpcd_admin_init();
+            lpcd_cpt_shortcodes::init_shortcodes();
         }
 
         public static function lpcd_activate()

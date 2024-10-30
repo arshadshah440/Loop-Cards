@@ -33,11 +33,16 @@ if (!class_exists('lpcd_admin_menu')) {
         public static function lpcd_admin_menu_options()
         {
             add_menu_page('LPCD Settings', 'Lpcd Settings', 'manage_options', 'lpcd-settings', array(__CLASS__, 'lpcd_admin_settings_menu'), 'dashicons-admin-generic', 20);
+            add_submenu_page('lpcd-settings', 'LPCD Create Shortcode', 'Create Shortcode', 'manage_options', 'lpcd-create-shortcode',  array(__CLASS__, 'lpcd_create_shortcode_menu'), 21);
         }
 
         public static function lpcd_admin_settings_menu()
         {
             include LOOPCARD_PLUGIN_PATH . 'templates/adminmenu/lpcd-settings-template.php';
+        }
+        public static function lpcd_create_shortcode_menu()
+        {
+            include LOOPCARD_PLUGIN_PATH . 'templates/adminmenu/lpcd-create-shortcode-menu-template.php';
         }
         public static function lpcd_admin_menu_settings()
         {

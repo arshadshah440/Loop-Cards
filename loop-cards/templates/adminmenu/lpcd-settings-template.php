@@ -15,18 +15,13 @@ if (! current_user_can('manage_options')) {
 }
 
 // add error/update messages
+$lpcd_shortcode_data = include LOOPCARD_PLUGIN_PATH . '/includes/admin/lpcd-shortcodes-details.php';
 
-// check if the user have submitted the settings
-// WordPress will add the "settings-updated" $_GET parameter to the url
-if (isset($_GET['settings-updated'])) {
-    // add settings saved message with the class of "updated"
-    add_settings_error('lpcd_messages', 'lpcd_message', __("Settings Saved", 'loop-cards'), 'updated');
-}
+
 
 // show error/update messages
 settings_errors('lpcd_messages');
 
-$lpcd_shortcode_data=include LOOPCARD_PLUGIN_PATH . '/includes/admin/lpcd-shortcodes-details.php';
 
 ?>
 
@@ -53,7 +48,7 @@ $lpcd_shortcode_data=include LOOPCARD_PLUGIN_PATH . '/includes/admin/lpcd-shortc
                                 <h5><?php echo esc_html__('Basic Loop Card', 'loop-cards'); ?></h5>
                                 <div class="lpcd_copy_code_wrapper">
                                     <div class="lpcd_shortcode">
-                                        <h6><?php echo esc_html__('['.$shortcode_data['lpcd_shortcode_name'].']', 'loop-cards'); ?></h6>
+                                        <h6><?php echo esc_html__('[' . $shortcode_data['lpcd_shortcode_name'] . ']', 'loop-cards'); ?></h6>
                                     </div>
                                     <div class="lpcd_copy_icons">
                                         <img src="<?php echo esc_url(LOOPCARD_PLUGIN_URL . '/includes/admin/img/copy-icon.svg'); ?>" alt="<?php echo esc_attr__('Copy Icon', 'loop-cards'); ?>" class="lpcd_copyicon">
@@ -64,17 +59,6 @@ $lpcd_shortcode_data=include LOOPCARD_PLUGIN_PATH . '/includes/admin/lpcd-shortc
                         </div>
                 <?php  }
                 } ?>
-            </div>
-            <div class="lpcd_custom_settings_wrapper">
-                <form action="options.php" method="post">
-                    <?php
-                    settings_fields('lpcd-settings');
-
-                    do_settings_sections('lpcd-settings');
-
-                    submit_button('Save Settings');
-                    ?>
-                </form>
             </div>
         </div>
     </div>
